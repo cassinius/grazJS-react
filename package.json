@@ -1,0 +1,39 @@
+{
+  "name": "lemontiger-react",
+  "version": "0.0.1",
+  "description": "Lemontiger main collection of interface components",
+  "main": "src/client/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cassinius/lemontiger-react.git"
+  },
+  "keywords": [
+    "Goals",
+    "strategies",
+    "collaborative",
+    "timeline",
+    "resource",
+    "sharing",
+    "resource",
+    "recommendation"
+  ],
+  "author": "Bernd Malle",
+  "license": "SEE LICENSE IN License.txt",
+  "bugs": {
+    "url": "https://github.com/cassinius/lemontiger-react/issues"
+  },
+  "homepage": "https://github.com/cassinius/lemontiger-react#readme",
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1"
+  }
+}
