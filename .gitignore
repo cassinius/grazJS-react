@@ -30,6 +30,9 @@ node_modules
 lib/
 data/
 
+# Bundle
+src/client/public
+
 # IDEs
 .vscode
 .idea
