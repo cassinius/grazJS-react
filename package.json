@@ -40,7 +40,11 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "feathers": "^2.0.1",
+    "feathers-hooks": "^1.5.4",
+    "feathers-socketio": "^1.4.1",
     "react": "^15.2.1",
-    "react-dom": "^15.2.1"
+    "react-dom": "^15.2.1",
+    "socket.io-client": "^1.4.8"
   }
 }
