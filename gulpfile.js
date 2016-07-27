@@ -10,7 +10,7 @@ const browserSync 		= require('browser-sync').create();
 // PATHS
 //----------------------------
 const paths = {
-	sources: ['src/**/*.js', 'src/**/*.jsx', 'index.html'],
+	sources: ['src/**/*.js', 'src/**/*.jsx', 'index.html', 'webpack.config.js'],
 	tests: ['test/**/*.js'],
 	clean: [''],
 	public: ['index.html', 'public/bundle.js']

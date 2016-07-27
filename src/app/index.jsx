@@ -13,11 +13,12 @@ const app = feathers()
 
 const messageService = app.service('messages');
 
+
 messageService.on('created', message => console.log('Created a message', message));
 
 // Use the messages service from the server
 messageService.create({
-	text: 'Message from client yihaa.'
+	text: 'Message from client @ ' + (new Date)
 });
 
 class App extends React.Component {
