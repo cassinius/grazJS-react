@@ -31,7 +31,7 @@ lib/
 data/
 
 # Bundle
-src/client/public
+public
 
 # IDEs
 .vscode
