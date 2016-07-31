@@ -1,9 +1,10 @@
 const gulp 						= require('gulp');
 const clean 					= require('gulp-clean');
 const mocha 					= require('gulp-mocha');
-// const babel           = require('gulp-babel');
+const uglify 					= require('gulp-uglify');
 const istanbul 				= require('gulp-istanbul');
 const webpack					= require('webpack-stream');
+const rename 					= require("gulp-rename");
 const browserSync 		= require('browser-sync').create();
 
 //----------------------------
@@ -29,18 +30,26 @@ gulp.task('build', ['clean'], function() {
 });
 
 
+gulp.task('uglify', ['build'], function() {
+	return gulp.src('public/bundle.js')
+		.pipe(uglify())
+		.pipe(rename('bundle.min.js'))
+		.pipe(gulp.dest('public'));
+});
+
+
 //----------------------------
 // BROWSER TASKS
 //----------------------------
 gulp.task('webpackBrowserSync', function() {
 	browserSync.init({
-		files: ['public/*', 'index.html'],
+		files: ['public/bundle.js', 'index.html'],
 		server: {
 			baseDir: './'
 		}
 	});
 
-	gulp.watch(paths.sources, ['build']);
+	gulp.watch(paths.sources, ['uglify']);
 	gulp.watch(paths.public).on('change', browserSync.reload);
 });
 

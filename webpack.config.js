@@ -17,7 +17,11 @@ var config = {
         test : /\.jsx?/,
         include : APP_DIR,
         loader : 'babel'
-      }
+      },
+			{
+				test: /\.styl$/,
+				loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
+			}
     ] //,
     // noParse: [ "react", "react-dom", "feathers/client", "feathers-socketio/client", "feathers-hooks", "socket.io-client"]
   },
