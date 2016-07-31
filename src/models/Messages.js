@@ -1,3 +1,5 @@
+import * as CONFIG from '../config/communication'
+
 const feathers = require('feathers/client');
 const socketio = require('feathers-socketio/client');
 const hooks = require('feathers-hooks');
@@ -14,6 +16,17 @@ const messageService = app.service('messages');
 messageService.on('created', message => console.log('Created a message', message));
 
 // Use the messages service from the server
-messageService.create({
-	text: 'Message from client @ ' + (new Date)
-});
+// messageService.create({
+// 	text: 'Message from client @ ' + (new Date)
+// });
+
+
+class MsgsClass {
+
+	constructor() {
+		console.log(CONFIG);
+	}
+
+}
+
+export { MsgsClass }

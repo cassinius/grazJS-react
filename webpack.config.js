@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'public');
-var APP_DIR = path.resolve(__dirname, 'src/app');
+var APP_DIR = path.resolve(__dirname, 'src');
 
 
 var config = {
@@ -17,11 +17,7 @@ var config = {
         test : /\.jsx?/,
         include : APP_DIR,
         loader : 'babel'
-      },
-			{
-				test: /\.styl$/,
-				loader: 'css-loader!stylus-loader?paths=node_modules/bootstrap-stylus/stylus/'
-			}
+      }
     ] //,
     // noParse: [ "react", "react-dom", "feathers/client", "feathers-socketio/client", "feathers-hooks", "socket.io-client"]
   },

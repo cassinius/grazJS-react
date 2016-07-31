@@ -17,7 +17,7 @@ const paths = {
 	tests: ['test/**/*.js'],
 	clean: ['public/*', 'coverage'],
 	public: ['index.html', 'public/bundle.js'],
-	styles: ['src/app/styles/*.styl']
+	styles: ['src/styles/**/*.styl']
 };
 
 
@@ -60,10 +60,11 @@ gulp.task('webpackBrowserSync', function() {
 		files: ['public/bundle.js', 'index.html'],
 		server: {
 			baseDir: './'
-		}
+		},
+		open: true
 	});
 
-	gulp.run('uglify');
+	gulp.run(['uglify', 'stylus']);
 
 	gulp.watch(paths.sources, ['uglify', 'stylus']);
 	gulp.watch(paths.public).on('change', browserSync.reload);
