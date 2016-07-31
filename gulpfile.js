@@ -13,13 +13,14 @@ const browserSync 		= require('browser-sync').create();
 const paths = {
 	sources: ['src/**/*.js', 'src/**/*.jsx', 'index.html', 'webpack.config.js'],
 	tests: ['test/**/*.js'],
-	clean: [''],
+	clean: ['public/*', 'coverage'],
 	public: ['index.html', 'public/bundle.js']
 };
 
 
 gulp.task('clean', function() {
-
+	return gulp.src(paths.clean)
+		.pipe(clean())
 });
 
 
