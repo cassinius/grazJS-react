@@ -13,7 +13,7 @@ const browserSync 		= require('browser-sync').create();
 // PATHS
 //----------------------------
 const paths = {
-	sources: ['src/**/*.js', 'src/**/*.jsx', 'index.html', 'webpack.config.js'],
+	sources: ['src/**/*.js', 'src/**/*.jsx', 'src/**/*.styl', 'index.html', 'webpack.config.js'],
 	tests: ['test/**/*.js'],
 	clean: ['public/*', 'coverage'],
 	public: ['index.html', 'public/bundle.js'],
@@ -42,7 +42,7 @@ gulp.task('uglify', ['build'], function() {
 });
 
 
-gulp.task('stylus', function () {
+gulp.task('stylus', ['uglify'], function () {
 	return gulp.src(paths.styles)
 		.pipe(stylus({
 			compress: true
@@ -55,7 +55,7 @@ gulp.task('stylus', function () {
 //----------------------------
 // BROWSER TASKS
 //----------------------------
-gulp.task('webpackBrowserSync', function() {
+gulp.task('webpackBrowserSync', ['stylus'], function() {
 	browserSync.init({
 		files: ['public/bundle.js', 'index.html'],
 		server: {
@@ -64,9 +64,7 @@ gulp.task('webpackBrowserSync', function() {
 		open: true
 	});
 
-	gulp.run(['uglify', 'stylus']);
-
-	gulp.watch(paths.sources, ['uglify', 'stylus']);
+	gulp.watch(paths.sources, ['stylus']);
 	gulp.watch(paths.public).on('change', browserSync.reload);
 });
 
