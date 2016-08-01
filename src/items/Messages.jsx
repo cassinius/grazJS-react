@@ -13,8 +13,9 @@ class Messages extends React.Component {
 		var msg = new MsgsClass();
   }
 
+
   handleClick() {
-    console.log(this); // React Component instance
+    console.log(this);
   }
 
   render() {
