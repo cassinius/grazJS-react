@@ -22,12 +22,15 @@ class Messages extends React.Component {
   componentDidMount() {
     this.msg.receiveInitialMessages().then(page => this.setState({ messages: page.data.reverse() }));
 
-    this.msg.msgService.on('created', message => {
+
+    let updateCallback = message => {
       var remaining_msgs = this.state.messages.slice(0, 19);
       this.setState({
         messages: [message].concat(remaining_msgs)
       });
-    });
+    };
+
+    this.msg.updateMessage(updateCallback);
   }
 
 
