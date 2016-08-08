@@ -3,7 +3,6 @@ import { MsgsClass } from '../models/Messages';
 
 class NewMessage extends React.Component {
 
-
 	constructor(props) {
 		super(props);
 
@@ -13,7 +12,6 @@ class NewMessage extends React.Component {
 
 		this.messenger = new MsgsClass();
 	}
-
 
 	handleKeyUp(e) {
 		let ENTER = 13;

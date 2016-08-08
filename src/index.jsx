@@ -10,7 +10,7 @@ class App extends React.Component {
     	<section id="app">
 
 				<div id="header">
-					grazJS Talk "Small foot-print pub/sub with feathers and react JS"
+					Multi-room chat app
 				</div>
 
 				<div id="nested-container">
@@ -35,9 +35,9 @@ class App extends React.Component {
 
 				</div>
 
-				<div id="footer">
-					Multi-Room Chat App by Bernd Malle
-				</div>
+				{/*<div id="footer">*/}
+					{/*Multi-Room Chat App by Bernd Malle*/}
+				{/*</div>*/}
 
 			</section>
 		);
