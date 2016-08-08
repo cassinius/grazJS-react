@@ -14,12 +14,22 @@ body {
 	background-color: #DDDDDD;
 }
 
+textarea {
+	resize: none;
+	padding: 8px;
+	font-size: 16px;
+	color: #999;
+	border-radius: 3px;
+	box-shadow: inset 0 0 2px grey;
+}
+
 #header, #footer {
 	padding: 5px;
 	font-size: 20px;
 	line-height: 50px;
 	vertical-align: middle;
-	background: #53B33C;
+	background: #197278;
+	color: white;
 }
 
 #header {
@@ -52,9 +62,11 @@ body {
 	width: 240px;
 	top: 8px;
 	bottom: 8px;
-	background: #bbbbbb;
 	border-radius: 3px;
-	box-shadow: 1px 1px 2px grey;
+	box-shadow: 1px 1px 1px grey;
+
+	background: #CCCCCC;
+	padding-left: 5px;
 }
 
 #chatroom {
@@ -82,6 +94,38 @@ body {
 
 #newMessageArea {
 	position: absolute;
+	left: 5px;
+	right: 8px;
 	bottom: 8px;
 	height: 112px;
+	padding: 8px;
+
+	#textbox-container {
+		position: absolute;
+		left: 8px;
+		right: 110px;
+		bottom: 8px;
+		height: 95px;
+
+		textarea {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+#send-message	{
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 80px;
+	height: 50px;
+
+	i.fa-paper-plane {
+		font-size: 80px;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
 }

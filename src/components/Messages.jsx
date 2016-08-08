@@ -1,8 +1,6 @@
 import React from 'react';
 import { MsgsClass } from '../models/Messages';
 
-console.log(MsgsClass);
-
 class Messages extends React.Component {
 
 
@@ -31,6 +29,7 @@ class Messages extends React.Component {
     this.msg.updateMessage(updateCallback);
   }
 
+
   componentDidUpdate() {
     var elem = document.querySelector('#messages-area');
     elem.scrollTop = elem.scrollHeight;
@@ -38,11 +37,11 @@ class Messages extends React.Component {
 
 
   render() {
-    console.log("Props: ");
-    console.dir(this.props);
-
-    console.log("State: ");
-    console.log(this.state.messages);
+    // console.log("Props: ");
+    // console.dir(this.props);
+		//
+    // console.log("State: ");
+    // console.log(this.state.messages);
 
     var messages = [];
     for (var i = 0; i < this.state.messages.length; i++) {
@@ -52,16 +51,8 @@ class Messages extends React.Component {
     }
 
     return (
-      <div id="messages" className="bigmess"
-           onClick={(e) => {
-             this.msg.sendMessage("hi there from Desktop!");
-             e.preventDefault();
-           }}
-           onTouchEnd={(e) => {
-             this.msg.sendMessage("hi there from Tablet!");
-             e.preventDefault();
-           }}>
-        <h2>Click here to see this object...</h2>
+      <div id="messages" className="bigmess">
+        <h2>#Msg in this conversation</h2>
 
         {messages}
 
@@ -71,3 +62,12 @@ class Messages extends React.Component {
 }
 
 export default Messages;
+
+// onClick={(e) => {
+//   this.msg.sendMessage("hi there from Desktop!");
+//   e.preventDefault();
+// }}
+// onTouchEnd={(e) => {
+//   this.msg.sendMessage("hi there from Tablet!");
+//   e.preventDefault();
+// }}

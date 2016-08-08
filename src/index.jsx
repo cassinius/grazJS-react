@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Messages from './items/Messages.jsx';
+import Messages from './components/Messages.jsx';
+import NewMessage from './components/NewMessage.jsx';
 
 
 class App extends React.Component {
@@ -9,13 +10,13 @@ class App extends React.Component {
     	<section id="app">
 
 				<div id="header">
-					grazJS Talk "Small foot-print pub/sub with feathers and react JS.
+					grazJS Talk "Small foot-print pub/sub with feathers and react JS"
 				</div>
 
 				<div id="nested-container">
 
 						<div id="chatroom-list">
-
+							<h3> Available rooms </h3>
 						</div>
 
 
@@ -26,7 +27,7 @@ class App extends React.Component {
 							</div>
 
 							<div id="newMessageArea">
-
+								<NewMessage/>
 							</div>
 
 						</div>
@@ -35,7 +36,7 @@ class App extends React.Component {
 				</div>
 
 				<div id="footer">
-					by Bernd Malle
+					Multi-Room Chat App by Bernd Malle
 				</div>
 
 			</section>

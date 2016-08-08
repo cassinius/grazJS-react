@@ -1,32 +1,29 @@
 import app from '../feathersApp';
 
-const messageService = app.service('messages');
-
-messageService.on('created', message => console.log('Created a message', message));
-
 
 class MsgsClass {
 
 	constructor() {
-		this.msgService = messageService;
+		this.messageService = app.service('messages');
+		this.messageService.on('created', message => console.log('Created a message', message));
 	}
 
 	sendMessage(msg) {
-		messageService.create({
+		this.messageService.create({
 			text: msg,
 			date: +new Date
 		});
 	}
 
 	updateMessage(updateCallback) {
-		messageService.on('created', updateCallback);
+		this.messageService.on('created', updateCallback);
 	}
 
 	receiveInitialMessages() {
 		// returns a promise
-		return messageService.find({
+		return this.messageService.find({
 			query: {
-				$sort: { date: 1 }
+				$sort: { date: -1 }
 			}
 		});
 	}
