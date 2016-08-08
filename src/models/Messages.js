@@ -26,8 +26,7 @@ class MsgsClass {
 		// returns a promise
 		return messageService.find({
 			query: {
-				$sort: { date: -1 },
-				$limit: 15
+				$sort: { date: 1 }
 			}
 		});
 	}

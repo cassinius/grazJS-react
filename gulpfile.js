@@ -35,7 +35,7 @@ gulp.task('build', ['clean'], function() {
 });
 
 
-gulp.task('uglify', ['build'], function() {
+gulp.task('uglify', ['stylus'], function() {
 	return gulp.src('public/bundle.js')
 		.pipe(uglify())
 		.pipe(rename('bundle.min.js'))
@@ -43,7 +43,7 @@ gulp.task('uglify', ['build'], function() {
 });
 
 
-gulp.task('stylus', ['uglify'], function () {
+gulp.task('stylus', ['build'], function () {
 	return gulp.src(paths.styles)
 		.pipe(stylus({
 			compress: true
@@ -65,7 +65,7 @@ gulp.task('webpackBrowserSync', ['stylus'], function() {
 		open: true
 	});
 
-	gulp.watch(paths.sources, ['stylus']);
+	gulp.watch(paths.sources, ['uglify']);
 	gulp.watch(paths.public).on('change', browserSync.reload);
 });
 

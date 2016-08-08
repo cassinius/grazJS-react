@@ -22,15 +22,18 @@ class Messages extends React.Component {
   componentDidMount() {
     this.msg.receiveInitialMessages().then(page => this.setState({ messages: page.data.reverse() }));
 
-
     let updateCallback = message => {
-      var remaining_msgs = this.state.messages.slice(0, 19);
       this.setState({
-        messages: [message].concat(remaining_msgs)
+        messages: this.state.messages.concat(message)
       });
     };
 
     this.msg.updateMessage(updateCallback);
+  }
+
+  componentDidUpdate() {
+    var elem = document.querySelector('#messages-area');
+    elem.scrollTop = elem.scrollHeight;
   }
 
 
@@ -43,9 +46,8 @@ class Messages extends React.Component {
 
     var messages = [];
     for (var i = 0; i < this.state.messages.length; i++) {
-      messages.push(<div className='msg' key={i}>
+      messages.push(<div className='message' key={i}>
         {this.state.messages[i].text}
-        {/*<br/>"Msg entry"*/}
       </div>);
     }
 
@@ -55,7 +57,7 @@ class Messages extends React.Component {
              this.msg.sendMessage("hi there from Desktop!");
              e.preventDefault();
            }}
-           onTouchStart={(e) => {
+           onTouchEnd={(e) => {
              this.msg.sendMessage("hi there from Tablet!");
              e.preventDefault();
            }}>

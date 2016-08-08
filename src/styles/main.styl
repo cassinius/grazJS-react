@@ -1,4 +1,87 @@
+*, *:before, *:after {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
 body {
-	color: white;
-	background-color: #111111;
+	color: black;
+	background-color: #DDDDDD;
+}
+
+#header, #footer {
+	padding: 5px;
+	font-size: 20px;
+	line-height: 50px;
+	vertical-align: middle;
+	background: #53B33C;
+}
+
+#header {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0px 1px 2px grey;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0px -1px 2px grey;
+}
+
+
+#nested-container {
+	position: absolute;
+	top: 50px;
+	bottom: 50px;
+	width: 100%;
+}
+
+
+#chatroom-list {
+	position: absolute;
+	left: 5px;
+	width: 240px;
+	top: 8px;
+	bottom: 8px;
+	background: #bbbbbb;
+	border-radius: 3px;
+	box-shadow: 1px 1px 2px grey;
+}
+
+#chatroom {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 250px;
+	right: 0;
+}
+
+#messages-area, #newMessageArea {
+	left: 5px;
+	right: 8px;
+	background: white;
+	border-radius: 3px;
+	box-shadow: 1px 1px 2px grey;
+}
+
+#messages-area {
+	position: absolute;
+	top: 8px;
+	bottom: 128px;
+	overflow: auto;
+}
+
+#newMessageArea {
+	position: absolute;
+	bottom: 8px;
+	height: 112px;
 }
