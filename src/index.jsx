@@ -11,6 +11,8 @@ class App extends React.Component {
 
 				<div id="header">
 					Multi-room chat app
+
+					<img id="logo-img" src="/assets/img/grazJSLogo.jpeg"/>
 				</div>
 
 				<div id="nested-container">

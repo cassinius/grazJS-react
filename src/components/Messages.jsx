@@ -52,7 +52,7 @@ class Messages extends React.Component {
 
     return (
       <div id="messages" className="bigmess">
-        <h2>#Msg in this conversation</h2>
+        <h2>#Msgs in this conversation</h2>
 
         {messages}
 
