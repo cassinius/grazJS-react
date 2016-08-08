@@ -62,7 +62,8 @@ gulp.task('webpackBrowserSync', ['stylus'], function() {
 		server: {
 			baseDir: './'
 		},
-		open: true
+		open: true,
+		ghostMode: false
 	});
 
 	gulp.watch(paths.sources, ['uglify']);
