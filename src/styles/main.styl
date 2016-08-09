@@ -63,7 +63,7 @@ textarea {
 	border-radius: 3px;
 	box-shadow: 0px 1px 2px grey;
 
-	#logo-img, #author-img {
+	#logo-img, #login-logout {
 		position: absolute;
 		top: 3px;
 		width: 44px;
@@ -75,10 +75,45 @@ textarea {
 		right: 3px;
 	}
 
-	#author-img {
-		right: 50px;
+	#login-logout	{
+		position: absolute;
+		top: 10px;
+		right: 290px;
+
+		input, .username-active {
+			display: inline-block;
+			width: 220px;
+			height: 30px;
+			border: none;
+			outline: none;
+			line-height: 30px;
+			vertical-align: middle;
+			font-size: 20px;
+			padding: 3px 15px 3px 15px;
+			border-radius: 15px;
+			overflow: hidden;
+			word-break: break-all;
+		}
+
+		.username-active:hover {
+			cursor: pointer;
+		}
+
+		#user-img {
+			position: absolute;
+			top: -7px;
+			left: 230px;
+			width: 44px;
+			height: 44px;
+			border-radius: 50%;
+
+			text-align: center;
+			line-height: 44px;
+			vertical-align: middle;
+		}
 	}
 }
+
 
 #footer {
 	position: absolute;
@@ -132,6 +167,18 @@ textarea {
 	top: 8px;
 	bottom: 128px;
 	overflow: auto;
+
+	#messages {
+		width: 100%;
+		padding: 20px;
+	}
+
+	.message {
+		width: 100%;
+		//height: 50px;
+
+		padding: 8px;
+	}
 }
 
 #newMessageArea {

@@ -54,7 +54,7 @@ gulp.task('stylus', ['build'], function () {
 
 
 //----------------------------
-// BROWSER TASKS
+// BROWSER SYNC
 //----------------------------
 gulp.task('webpackBrowserSync', ['stylus'], function() {
 	browserSync.init({
