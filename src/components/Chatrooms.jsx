@@ -17,7 +17,16 @@ class Chatrooms extends React.Component {
 
 
 	componentDidMount() {
-		this.roomService.receiveInitialChatrooms().then(page => this.setState({ chatrooms: page.data.reverse() }));
+		this.roomService.receiveInitialChatrooms().then(page => {
+			this.setState({ chatrooms: page.data.reverse() });
+
+			// Select the first as active
+			if ( this.state.chatrooms.length ) {
+				// console.dir(this.state.chatrooms);
+				this.setRoomActive(this.state.chatrooms[0]._id);
+				document.querySelector(".chatroom-entry").classList.add("active");
+			}
+		});
 
 		let updateCallback = room => {
 			this.setState({

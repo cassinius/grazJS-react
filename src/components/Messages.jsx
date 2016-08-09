@@ -25,9 +25,14 @@ class Messages extends React.Component {
     this.initializeMessages();
 
     let updateCallback = message => {
-      this.setState({
-        messages: this.state.messages.concat(message)
-      });
+
+      // check if message is for the right room...
+      if ( message.roomID === this.props.room ) {
+        this.setState({
+          messages: this.state.messages.concat(message)
+        });
+      }
+
     };
 
     this.msg.updateMessage(updateCallback);
