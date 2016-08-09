@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Chatrooms from './components/Chatrooms.jsx';
 import Messages from './components/Messages.jsx';
 import NewMessage from './components/NewMessage.jsx';
 import LoginLogout from './components/LoginLogout.jsx';
@@ -73,6 +74,7 @@ class App extends React.Component {
 
 						<div id="chatroom-list">
 							<h3> Available rooms </h3>
+							<Chatrooms/>
 						</div>
 
 

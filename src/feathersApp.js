@@ -16,9 +16,4 @@ const app = feathers()
 		storage: window.localStorage
 	}));
 
-
-app.get('/auth/blahoo/', () => {
-	console.log('contacted server on /messages service');
-});
-
 export default app;
