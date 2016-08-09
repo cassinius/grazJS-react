@@ -56,26 +56,27 @@ class Chatrooms extends React.Component {
 		return false;
 	}
 
+	setRoomActive(roomID) {
+		this.props.onRoomEntry(roomID);
+	}
 
 	render() {
-		console.log("Chatrooms Props: ");
-		console.dir(this.props);
-
-		console.log("Chatrooms State: ");
-		console.log(this.state.chatrooms);
-
 		var chatrooms = [];
 		for (var i = 0; i < this.state.chatrooms.length; i++) {
+			let room = this.state.chatrooms[i];
+
 			chatrooms.push(<div className='chatroom-entry' key={i}
+													data-id={room._id}
 													onClick={(e) => {
-														{/*console.log(e.target.classList);*/}
 														let ces = document.querySelectorAll(".chatroom-entry");
 														ces.forEach((ce) => {
 															ce.classList.remove("active");
 														});
 														e.target.classList.add("active");
+
+														this.setRoomActive(e.target.dataset.id);
 													}}>
-				{this.state.chatrooms[i].title}
+				{room.title}
 			</div>);
 		}
 

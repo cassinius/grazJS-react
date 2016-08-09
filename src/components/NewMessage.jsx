@@ -23,7 +23,12 @@ class NewMessage extends React.Component {
 			return false;
 		}
 
-		this.messenger.sendMessage(msg, this.props.user);
+		console.dir(this.props.user);
+		console.log("Room: " + this.props.room);
+
+		let user = this.props.user.loggedIn ? this.props.user : undefined;
+
+		this.messenger.sendMessage(msg, user, this.props.room);
 		this.refs.msgBox.value = "";
 		e.preventDefault();
 		return false;

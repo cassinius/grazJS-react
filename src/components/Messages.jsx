@@ -16,9 +16,13 @@ class Messages extends React.Component {
 		this.msg = new MsgsClass();
   }
 
+  initializeMessages() {
+    this.msg.receiveInitialMessages(this.props.room)
+      .then(page => this.setState({ messages: page.data.reverse() }));
+  }
 
   componentDidMount() {
-    this.msg.receiveInitialMessages().then(page => this.setState({ messages: page.data.reverse() }));
+    this.initializeMessages();
 
     let updateCallback = message => {
       this.setState({
@@ -30,7 +34,11 @@ class Messages extends React.Component {
   }
 
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
+    if ( prevProps.room !== this.props.room ) {
+      this.initializeMessages();
+    }
+
     var elem = document.querySelector('#messages-area');
     elem.scrollTop = elem.scrollHeight;
   }
@@ -68,7 +76,7 @@ class Messages extends React.Component {
 
     return (
       <div id="messages" className="bigmess">
-        <h2>#Msgs in this conversation</h2>
+        <h2>Welcome to this chat room</h2>
 
         {messages}
 

@@ -1,6 +1,6 @@
 const CONFIG = {
 	development: {
-		HOST: 'localhost',
+		HOST: '192.168.1.5',
 		PORT: 3030
 	},
 	production: {

@@ -15,10 +15,20 @@ class App extends React.Component {
 				loggedIn: false,
 				username: undefined,
 				user_color: undefined
-			}
+			},
+			active_chat: undefined
 		};
 		this.loginUser = this.loginUser.bind(this);
 		this.logoutUser = this.logoutUser.bind(this);
+		this.setActiveRoom = this.setActiveRoom.bind(this);
+	}
+
+	setActiveRoom(roomID) {
+		console.log("New active chatroom: " + roomID);
+
+		this.setState({
+			active_chat: roomID
+		});
 	}
 
 	loginUser(user) {
@@ -74,18 +84,20 @@ class App extends React.Component {
 
 						<div id="chatroom-list">
 							<h3> Available rooms </h3>
-							<Chatrooms/>
+							<Chatrooms onRoomEntry={this.setActiveRoom}/>
 						</div>
 
 
 						<div id="chatroom">
 
 							<div id="messages-area">
-								<Messages user={this.state.user}/>
+								<Messages user={this.state.user}
+													room={this.state.active_chat}/>
 							</div>
 
 							<div id="newMessageArea">
-								<NewMessage user={this.state.user}/>
+								<NewMessage user={this.state.user}
+														room={this.state.active_chat}/>
 							</div>
 
 						</div>

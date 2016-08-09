@@ -8,11 +8,12 @@ class MsgsClass {
 		this.messageService.on('created', message => console.log('Created a message', message));
 	}
 
-	sendMessage(msg, user) {
+	sendMessage(msg, user, roomID) {
 		this.messageService.create({
 			text: msg,
 			date: +new Date,
-			user: user
+			user: user,
+			roomID: roomID
 		});
 	}
 
@@ -20,10 +21,12 @@ class MsgsClass {
 		this.messageService.on('created', updateCallback);
 	}
 
-	receiveInitialMessages() {
+	receiveInitialMessages(roomID) {
+		console.log("Searching for room ID: " + roomID);
 		// returns a promise
 		return this.messageService.find({
 			query: {
+				roomID: roomID || " ",
 				$sort: { date: -1 }
 			}
 		});
