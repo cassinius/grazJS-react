@@ -11,6 +11,9 @@ let connString = "http://" + env.HOST + ":" + env.PORT;
 const socket = io(connString);
 const app = feathers()
 	.configure(hooks())
-	.configure(socketio(socket));
+	.configure(socketio(socket))
+	.configure(feathers.authentication({
+		storage: window.localStorage
+	}));
 
 export default app;

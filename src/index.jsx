@@ -10,9 +10,16 @@ class App extends React.Component {
     	<section id="app">
 
 				<div id="header">
-					Multi-room chat app
+					<span className="title">
+						grazJS chat app
+					</span>
+
+					<span className="author">
+						...by Bernd Malle
+					</span>
 
 					<img id="logo-img" src="/assets/img/grazJSLogo.jpeg"/>
+					<img id="author-img" src="/assets/img/bernie.jpg"/>
 				</div>
 
 				<div id="nested-container">

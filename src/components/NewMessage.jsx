@@ -41,7 +41,7 @@ class NewMessage extends React.Component {
 
 				<div id="textbox-container">
 					<textarea ref="msgBox"
-										placeholder="Read it and weep, folks..."
+										placeholder="Tell us how it is... (Ctrl+Enter submits)"
 										maxLength="1024"
 										onKeyUp={(e) => {this.handleKeyUp(e)}}/>
 				</div>
