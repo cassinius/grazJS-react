@@ -23,7 +23,7 @@ class NewMessage extends React.Component {
 			return false;
 		}
 
-		this.messenger.sendMessage(msg);
+		this.messenger.sendMessage(msg, this.props.user);
 		this.refs.msgBox.value = "";
 		e.preventDefault();
 		return false;

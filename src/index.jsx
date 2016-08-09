@@ -81,11 +81,11 @@ class App extends React.Component {
 						<div id="chatroom">
 
 							<div id="messages-area">
-								<Messages/>
+								<Messages user={this.state.user}/>
 							</div>
 
 							<div id="newMessageArea">
-								<NewMessage/>
+								<NewMessage user={this.state.user}/>
 							</div>
 
 						</div>

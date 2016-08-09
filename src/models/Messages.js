@@ -8,10 +8,11 @@ class MsgsClass {
 		this.messageService.on('created', message => console.log('Created a message', message));
 	}
 
-	sendMessage(msg) {
+	sendMessage(msg, user) {
 		this.messageService.create({
 			text: msg,
-			date: +new Date
+			date: +new Date,
+			user: user
 		});
 	}
 

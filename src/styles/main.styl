@@ -105,6 +105,7 @@ textarea {
 			left: 230px;
 			width: 44px;
 			height: 44px;
+			//border: 5px solid white;
 			border-radius: 50%;
 
 			text-align: center;
@@ -201,11 +202,13 @@ textarea {
 	}
 
 	.message {
+		position: relative;
 		width: 100%;
 		height: 80px;
-
 		padding: 8px;
 		margin-bottom: 20px;
+		overflow: hidden;
+		word-break: break-all;
 
 		background: #EEEEEE;
 		border: 5px solid #DDDDDD;
@@ -213,8 +216,29 @@ textarea {
 		border-bottom-left-radius: 40px;
 		border-top-right-radius: 15px;
 		border-bottom-right-radius: 15px;
-		//border-radius: 40px;
-		//box-shadow: 1px 1px 1px grey, -1px -1px 1px grey;
+
+		.user-img {
+			display: inline-block;
+			position: relative;
+			top: -2px;
+			left: -3px;
+			width: 60px;
+			height: 60px;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 60px;
+			font-size: 25px;
+			vertical-align: middle;
+		}
+
+		.msgText {
+			display: inline-block;
+			position: absolute;
+			left: 75px;
+			top: 0;
+			height: 64px;
+			line-height: 32px;
+		}
 	}
 }
 

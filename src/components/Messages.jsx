@@ -35,19 +35,35 @@ class Messages extends React.Component {
     elem.scrollTop = elem.scrollHeight;
   }
 
+  getUserSymbol(user) {
+    let userImage = null;
+
+    if ( user ) {
+      let userStyle = {
+        background: user.user_color
+      };
+      let initials = user.username.split(" ").splice(0, 2).map((i) => {
+          return i[0]
+        }).join(".") + ".";
+
+      userImage = <span className="user-img" style={userStyle}>{initials}</span>;
+    }
+    else {
+      userImage = <img className="user-img" src="/assets/img/anonymous.png"/>;
+    }
+    return userImage;
+  }
 
   render() {
-    // console.log("Props: ");
-    // console.dir(this.props);
-		//
-    // console.log("State: ");
-    // console.log(this.state.messages);
-
     var messages = [];
     for (var i = 0; i < this.state.messages.length; i++) {
-      messages.push(<div className='message' key={i}>
-        {this.state.messages[i].text}
-      </div>);
+      messages.push(
+        <div className='message' key={i}>
+          {this.getUserSymbol(this.state.messages[i].user)}
+          <span className="msgText">
+            {this.state.messages[i].text}
+          </span>
+        </div>);
     }
 
     return (
