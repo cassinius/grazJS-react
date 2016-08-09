@@ -77,7 +77,7 @@ class Chatrooms extends React.Component {
 			chatrooms.push(<div className='chatroom-entry' key={i}
 													data-id={room._id}
 													onClick={(e) => {
-														let ces = document.querySelectorAll(".chatroom-entry");
+														let ces = Array.prototype.slice.call( document.querySelectorAll(".chatroom-entry") );
 														ces.forEach((ce) => {
 															ce.classList.remove("active");
 														});
