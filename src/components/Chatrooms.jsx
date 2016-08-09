@@ -35,6 +35,28 @@ class Chatrooms extends React.Component {
 	}
 
 
+	handleKeyUp(e) {
+		let ENTER = 13;
+		if( e.keyCode === ENTER ) {
+			this.createChatroom(e);
+		}
+	}
+
+
+	createChatroom(e) {
+		let title = this.refs.add_chatroom.value;
+		if (title == null || title === "") {
+			e.preventDefault();
+			return false;
+		}
+
+		this.roomService.makeRoom(title);
+		this.refs.add_chatroom.value = "";
+		e.preventDefault();
+		return false;
+	}
+
+
 	render() {
 		console.log("Chatrooms Props: ");
 		console.dir(this.props);
@@ -44,13 +66,23 @@ class Chatrooms extends React.Component {
 
 		var chatrooms = [];
 		for (var i = 0; i < this.state.chatrooms.length; i++) {
-			chatrooms.push(<div className='chatroom-entry' key={i}>
+			chatrooms.push(<div className='chatroom-entry' key={i}
+													onClick={(e) => {
+														{/*console.log(e.target.classList);*/}
+														let ces = document.querySelectorAll(".chatroom-entry");
+														ces.forEach((ce) => {
+															ce.classList.remove("active");
+														});
+														e.target.classList.add("active");
+													}}>
 				{this.state.chatrooms[i].title}
 			</div>);
 		}
 
 		return (
 			<div id="chatrooms-area">
+				<input type="text" placeholder="create chatroom" ref="add_chatroom"
+							 onKeyUp={(e) => {this.handleKeyUp(e)}} />
 
 				{chatrooms}
 

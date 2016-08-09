@@ -8,7 +8,7 @@ class ChatroomService {
 		this.service.on('created', message => console.log('Created a Chatroom', message));
 	}
 
-	sendMessage(title) {
+	makeRoom(title) {
 		this.service.create({
 			title: title,
 			date: +new Date
