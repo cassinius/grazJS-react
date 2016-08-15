@@ -10,7 +10,7 @@ class NewMessage extends React.Component {
 
 	handleKeyUp(e) {
 		let ENTER = 13;
-		if( e.ctrlKey && e.keyCode === ENTER ) {
+		if( !e.shiftKey && e.keyCode === ENTER ) {
 			this.sendMessage(e);
 		}
 	}
@@ -41,7 +41,7 @@ class NewMessage extends React.Component {
 
 				<div id="textbox-container">
 					<textarea ref="msgBox"
-										placeholder="Tell us how it is... (Ctrl+Enter submits)"
+										placeholder="What do you wanna say?"
 										maxLength="1024"
 										onKeyUp={(e) => {this.handleKeyUp(e)}}/>
 				</div>
